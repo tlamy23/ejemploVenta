@@ -1,0 +1,47 @@
+<h1>Listing users</h1>
+
+<table id="tUsers">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Adress</th>
+      <th>Phone</th>
+      <th>Id type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr id="user<%=user.id.to_s%>">
+        <td><%= user.name %></td>
+        <td><%= user.adress %></td>
+        <td><%= user.phone %></td>
+        <% if user.type!=nil%>
+        <td><%= user.type.name %></td>
+        <% end %>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></td>
+        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path, :id => 'aNewUsr'%>
+
+
+<!--<div id="task" style="display: none">
+  <iframe id="ftask" height="400" width="100%"></iframe>
+</div>
+<script>
+  $("#aNewUsr").click(function()
+  {
+    $("#task").show();
+  });
+</script>-->

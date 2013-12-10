@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id client:</strong>
+  <%= @ticket.client_id %>
+  <br>
+  <strong>Client</strong>
+  <% c = User.find_by_id(@ticket.client_id)%>
+  <% if c!=nil %>
+  <%= c.name %>
+  <% else %>
+  <%= 'No se encontro' %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Id employed:</strong>
+  <%= @ticket.employed_id %>
+  <br>
+  <strong>Employed</strong>
+  <% e = User.find_by_id(@ticket.employed_id) %>
+  <%if e!=nil%>
+  <%= e.name %>
+  <% else %>
+  <%= 'No se encontro' %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Id clothing:</strong>
+  <%= @ticket.clothing_id %>
+  <br>
+  <strong>Clothing</strong>
+  <% cl=Clothing.find_by_id(@ticket.clothing_id)%>
+  <% if cl!= nil %>
+  <%= cl.brand%>
+  <% else %>
+  <%= 'No se encontro' %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @ticket.amount %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

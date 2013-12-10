@@ -1,0 +1,33 @@
+<h1>Listing tickets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client id</th>
+      <th>Employed id</th>
+      <th>Clothing id</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr id="ticket<%=ticket.id.to_s%>">
+        <td><%= ticket.client_id %></td>
+        <td><%= ticket.employed_id %></td>
+        <td><%= ticket.clothing_id %></td>
+        <td><%= ticket.amount %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket', new_ticket_path %>

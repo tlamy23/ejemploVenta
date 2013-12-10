@@ -1,0 +1,33 @@
+<%= form_for(@ticket) do |f| %>
+  <% if @ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% @ticket.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :client %><br>
+    <%= f.select :client_id , User.clients.all.collect{|u| [u.name,u.id]}, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :employed %><br>
+    <%= f.select :employed_id, User.employees.all.collect{|u| [u.name, u.id]}, :include_blank =>true %>
+  </div>
+  <div class="field">
+    <%= f.label :clothing %><br>
+    <%= f.select :clothing_id, Clothing.all.collect{|c| [c.style, c.id]}, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

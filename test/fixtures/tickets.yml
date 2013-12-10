@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_client: 1
+  id_employed: 1
+  id_clothing: 1
+  amount: 1
+
+two:
+  id_client: 1
+  id_employed: 1
+  id_clothing: 1
+  amount: 1

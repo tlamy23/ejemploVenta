@@ -1,0 +1,6 @@
+<%if @user.new_record? %>
+$('#user_name').effect('highlight',{color:'red'});
+<%else%>
+$('#tUsers tr:last').after(<tr id="user<%=@user.id.to_s%>"><td><%= @user.name %></td><td><%= @user.adress %></td><td><%= @user.phone %></td><td><%= @user.type.name %></td><td><%= link_to 'Show', @user %></td><td><%= link_to 'Edit', edit_user_path(@user) %></td><td><%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></td></tr>);
+$('#user<%= @user.id%>').effect('highlight');
+<%end%>
